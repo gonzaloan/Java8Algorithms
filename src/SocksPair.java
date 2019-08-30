@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * John works at a clothing store. He has a large pile of socks that he must pair by color for sale. Given an array of
@@ -23,8 +24,7 @@ public class SocksPair {
 
     static int sockMerchant(int n, int[] ar) {
         //mapea todos los objetos iguales
-        return Arrays.stream(ar)
-                .boxed()
+        return Stream.of(ar)
                 .collect(Collectors.toList())
                 .stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
